@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#57068c">
+  <meta name="description" content="Vidhi — MS student in Biomedical Engineering at NYU Tandon, interested in medical robotics, sensors, and healthcare technology.">
+  <title>Vidhi | Biomedical Engineering</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --purple: #57068c;
+      --purple-dark: #3f0864;
+      --ink: #201a24;
+      --muted: #6f6874;
+      --line: #e9e4ec;
+      --wash: #faf8fc;
+      --page-width: 980px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: #fff;
+      color: var(--ink);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .shell { width: min(var(--page-width), calc(100% - 48px)); margin-inline: auto; }
+    .topbar {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { color: var(--purple); font-size: 1.08rem; font-weight: 750; letter-spacing: -.04em; text-decoration: none; }
+    nav { display: flex; gap: 28px; }
+    nav a { color: var(--muted); font-size: .88rem; text-decoration: none; transition: color .18s ease; }
+    nav a:hover, nav a:focus-visible { color: var(--purple); }
+    .hero { padding: 88px 0 82px; }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 19px;
+      color: var(--purple);
+      font-size: .77rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { width: 22px; height: 1px; background: currentColor; content: ""; }
+    h1 { max-width: 740px; margin: 0; font-size: clamp(3.1rem, 8vw, 5.8rem); line-height: .99; letter-spacing: -.075em; font-weight: 720; }
+    h1 span { color: var(--purple); }
+    .hero-copy { max-width: 540px; margin: 24px 0 0; color: var(--muted); font-size: 1.12rem; }
+    .hero-link { display: inline-flex; align-items: center; gap: 9px; margin-top: 27px; color: var(--purple); font-size: .92rem; font-weight: 650; text-decoration: none; }
+    .hero-link span { transition: transform .18s ease; }
+    .hero-link:hover span { transform: translateX(4px); }
+    section { border-top: 1px solid var(--line); padding: 66px 0; }
+    .section-heading { display: grid; grid-template-columns: 190px 1fr; gap: 24px; margin-bottom: 34px; }
+    .section-label { margin: 6px 0 0; color: var(--purple); font-size: .75rem; font-weight: 750; letter-spacing: .12em; text-transform: uppercase; }
+    h2 { margin: 0; font-size: clamp(1.65rem, 4vw, 2.15rem); line-height: 1.2; letter-spacing: -.045em; }
+    .about-copy { max-width: 620px; color: var(--muted); }
+    .about-copy p { margin: 0 0 12px; }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .project-card {
+      min-height: 190px;
+      padding: 23px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: linear-gradient(145deg, #fff 55%, var(--wash));
+    }
+    .project-number { color: #a89aaf; font-size: .76rem; font-weight: 700; letter-spacing: .1em; }
+    .project-card h3 { margin: 24px 0 9px; font-size: 1.08rem; letter-spacing: -.02em; }
+    .project-card p { margin: 3px 0; color: var(--muted); font-size: .9rem; }
+    .skills { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+    .skills li { padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .88rem; }
+    .contact { background: var(--wash); }
+    .contact-inner { display: grid; grid-template-columns: 190px 1fr; gap: 24px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 23px; }
+    .contact-link { display: inline-flex; align-items: center; gap: 9px; padding: 10px 15px; border-radius: 7px; background: var(--purple); color: #fff; font-size: .9rem; font-weight: 650; text-decoration: none; transition: background .18s ease, transform .18s ease; }
+    .contact-link:hover, .contact-link:focus-visible { background: var(--purple-dark); transform: translateY(-1px); }
+    .contact-link.secondary { border: 1px solid #d9c9e5; background: #fff; color: var(--purple); }
+    .contact-link.secondary:hover, .contact-link.secondary:focus-visible { background: #f3edf8; }
+    footer { padding: 24px 0 32px; color: #8b838f; font-size: .8rem; }
+    :focus-visible { outline: 3px solid #b989d9; outline-offset: 3px; }
+    @media (max-width: 700px) {
+      .shell { width: min(100% - 36px, var(--page-width)); }
+      .topbar { height: 66px; }
+      nav { gap: 15px; }
+      nav a { font-size: .8rem; }
+      .hero { padding: 70px 0 62px; }
+      .hero-copy { font-size: 1.02rem; }
+      section { padding: 50px 0; }
+      .section-heading, .contact-inner { grid-template-columns: 1fr; gap: 13px; }
+      .section-heading { margin-bottom: 24px; }
+      .section-label { margin-top: 0; }
+      .projects-grid { grid-template-columns: 1fr; gap: 11px; }
+      .project-card { min-height: 0; padding: 19px 20px; }
+      .project-card h3 { margin: 16px 0 7px; }
+    }
+    @media (max-width: 380px) {
+      .shell { width: calc(100% - 28px); }
+      nav { gap: 10px; }
+      nav a { font-size: .74rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Vidhi, home">V.</a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <div class="hero">
+        <p class="eyebrow">Biomedical Engineering · NYU Tandon</p>
+        <h1>Hi, I’m <span>Vidhi.</span></h1>
+        <p class="hero-copy">MS in Biomedical Engineering at NYU Tandon, interested in medical robotics, sensors, and healthcare technology.</p>
+        <a class="hero-link" href="#about">A little about me <span aria-hidden="true">→</span></a>
+      </div>
+
+      <section id="about" aria-labelledby="about-title">
+        <div class="section-heading">
+          <p class="section-label">01 / About</p>
+          <div>
+            <h2 id="about-title">A bit about me</h2>
+            <div class="about-copy">
+              <p>I am an MS student in biomedical engineering at NYU Tandon.</p>
+              <p>I build software for medical robotics hardware, including IMUs, electric actuators, and dexterous robotic hands.</p>
+              <p>I use vibe coding to build this software.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="section-label">02 / Projects</p>
+          <div>
+            <h2 id="projects-title">Selected projects</h2>
+          </div>
+        </div>
+        <div class="projects-grid">
+          <article class="project-card">
+            <span class="project-number">01</span>
+            <h3>IMU Software Development</h3>
+            <p>Software for IMU sensors: accelerometer, gyroscope, and magnetometer.</p>
+            <p>Built using vibe coding.</p>
+          </article>
+          <article class="project-card">
+            <span class="project-number">02</span>
+            <h3>Electric Actuator Software</h3>
+            <p>Software for controlling an electric actuator.</p>
+            <p>Built using vibe coding.</p>
+          </article>
+          <article class="project-card">
+            <span class="project-number">03</span>
+            <h3>Dexterous Hand Controls</h3>
+            <p>Control software for a dexterous robotic hand.</p>
+            <p>Built using vibe coding.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" aria-labelledby="skills-title">
+        <div class="section-heading">
+          <p class="section-label">03 / Skills</p>
+          <div>
+            <h2 id="skills-title">Skills</h2>
+            <ul class="skills" aria-label="Skills list">
+              <li>IMU sensors</li>
+              <li>Accelerometers</li>
+              <li>Gyroscopes</li>
+              <li>Magnetometers</li>
+              <li>Electric actuators</li>
+              <li>Dexterous robotic hands</li>
+              <li>Software development</li>
+              <li>Vibe coding</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact-inner">
+          <p class="section-label">04 / Contact</p>
+          <div>
+            <h2 id="contact-title">Let’s connect.</h2>
+            <div class="contact-links">
+              <a class="contact-link" href="mailto:vj2337@nyu.edu">vj2337@nyu.edu <span aria-hidden="true">↗</span></a>
+              <a class="contact-link secondary" href="https://www.linkedin.com/in/vidhi-jain-312ab0239">LinkedIn <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>Vidhi · MS in Biomedical Engineering · NYU Tandon</footer>
+  </div>
+</body>
+</html>
