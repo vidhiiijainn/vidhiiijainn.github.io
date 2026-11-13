@@ -6,22 +6,44 @@
   <meta name="theme-color" content="#57068c">
   <meta name="description" content="Vidhi — MS student in Biomedical Engineering at NYU Tandon, interested in medical robotics, sensors, and healthcare technology.">
   <title>Vidhi | Biomedical Engineering</title>
+  <script>
+    try {
+      if (localStorage.getItem("vidhi-theme") === "dark") document.documentElement.dataset.theme = "dark";
+    } catch {}
+  </script>
   <style>
     :root {
       color-scheme: light;
+      --page-bg: #fff;
       --purple: #57068c;
-      --purple-dark: #3f0864;
+      --button-bg: #57068c;
+      --button-hover: #3f0864;
       --ink: #201a24;
       --muted: #6f6874;
       --line: #e9e4ec;
       --wash: #faf8fc;
+      --field-border: #d9c9e5;
+      --field-placeholder: #918897;
       --page-width: 980px;
+    }
+    html[data-theme="dark"] {
+      color-scheme: dark;
+      --page-bg: #17131d;
+      --purple: #d0a6f0;
+      --button-bg: #57068c;
+      --button-hover: #7135a0;
+      --ink: #f4eff8;
+      --muted: #c1b8c9;
+      --line: #3d3545;
+      --wash: #211b29;
+      --field-border: #51445c;
+      --field-placeholder: #aa9eaf;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background: #fff;
+      background: var(--page-bg);
       color: var(--ink);
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       font-size: 16px;
@@ -41,6 +63,8 @@
     nav { display: flex; gap: 28px; }
     nav a { color: var(--muted); font-size: .88rem; text-decoration: none; transition: color .18s ease; }
     nav a:hover, nav a:focus-visible { color: var(--purple); }
+    .theme-toggle { padding: 0; border: 0; background: transparent; color: var(--muted); font: inherit; font-size: .88rem; cursor: pointer; transition: color .18s ease; }
+    .theme-toggle:hover { color: var(--purple); }
     .hero { padding: 88px 0 82px; }
     .eyebrow {
       display: inline-flex;
@@ -72,9 +96,9 @@
       padding: 23px;
       border: 1px solid var(--line);
       border-radius: 10px;
-      background: linear-gradient(145deg, #fff 55%, var(--wash));
+      background: linear-gradient(145deg, var(--page-bg) 55%, var(--wash));
     }
-    .project-number { color: #a89aaf; font-size: .76rem; font-weight: 700; letter-spacing: .1em; }
+    .project-number { color: var(--muted); font-size: .76rem; font-weight: 700; letter-spacing: .1em; }
     .project-card h3 { margin: 24px 0 9px; font-size: 1.08rem; letter-spacing: -.02em; }
     .project-card p { margin: 3px 0; color: var(--muted); font-size: .9rem; }
     .skills { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
@@ -82,18 +106,18 @@
     .contact { background: var(--wash); }
     .contact-inner { display: grid; grid-template-columns: 190px 1fr; gap: 24px; }
     .contact-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 23px; }
-    .contact-link { display: inline-flex; align-items: center; gap: 9px; padding: 10px 15px; border-radius: 7px; background: var(--purple); color: #fff; font-size: .9rem; font-weight: 650; text-decoration: none; transition: background .18s ease, transform .18s ease; }
-    .contact-link:hover, .contact-link:focus-visible { background: var(--purple-dark); transform: translateY(-1px); }
-    .contact-link.secondary { border: 1px solid #d9c9e5; background: #fff; color: var(--purple); }
-    .contact-link.secondary:hover, .contact-link.secondary:focus-visible { background: #f3edf8; }
+    .contact-link { display: inline-flex; align-items: center; gap: 9px; padding: 10px 15px; border-radius: 7px; background: var(--button-bg); color: #fff; font-size: .9rem; font-weight: 650; text-decoration: none; transition: background .18s ease, transform .18s ease; }
+    .contact-link:hover, .contact-link:focus-visible { background: var(--button-hover); transform: translateY(-1px); }
+    .contact-link.secondary { border: 1px solid var(--field-border); background: var(--page-bg); color: var(--purple); }
+    .contact-link.secondary:hover, .contact-link.secondary:focus-visible { background: var(--wash); }
     .contact-form { display: grid; gap: 13px; max-width: 580px; margin-top: 28px; }
     .contact-form label { color: var(--ink); font-size: .88rem; font-weight: 650; }
-    .contact-form textarea { display: block; width: 100%; min-height: 132px; margin-top: 6px; padding: 12px 14px; resize: vertical; border: 1px solid #d9c9e5; border-radius: 7px; background: #fff; color: var(--ink); font: inherit; }
-    .contact-form textarea::placeholder { color: #918897; }
-    .contact-form button { justify-self: start; padding: 10px 17px; border: 0; border-radius: 7px; background: var(--purple); color: #fff; font: inherit; font-size: .9rem; font-weight: 650; cursor: pointer; transition: background .18s ease, transform .18s ease; }
-    .contact-form button:hover { background: var(--purple-dark); transform: translateY(-1px); }
+    .contact-form textarea { display: block; width: 100%; min-height: 132px; margin-top: 6px; padding: 12px 14px; resize: vertical; border: 1px solid var(--field-border); border-radius: 7px; background: var(--page-bg); color: var(--ink); font: inherit; }
+    .contact-form textarea::placeholder { color: var(--field-placeholder); }
+    .contact-form button { justify-self: start; padding: 10px 17px; border: 0; border-radius: 7px; background: var(--button-bg); color: #fff; font: inherit; font-size: .9rem; font-weight: 650; cursor: pointer; transition: background .18s ease, transform .18s ease; }
+    .contact-form button:hover { background: var(--button-hover); transform: translateY(-1px); }
     .contact-note { margin: -3px 0 0; color: var(--muted); font-size: .84rem; }
-    footer { padding: 24px 0 32px; color: #8b838f; font-size: .8rem; }
+    footer { padding: 24px 0 32px; color: var(--muted); font-size: .8rem; }
     :focus-visible { outline: 3px solid #b989d9; outline-offset: 3px; }
     @media (max-width: 700px) {
       .shell { width: min(100% - 36px, var(--page-width)); }
@@ -114,6 +138,7 @@
       .shell { width: calc(100% - 28px); }
       nav { gap: 10px; }
       nav a { font-size: .74rem; }
+      .theme-toggle { font-size: .74rem; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -130,6 +155,7 @@
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
       </nav>
     </header>
 
@@ -225,6 +251,20 @@
     <footer>Vidhi · MS in Biomedical Engineering · NYU Tandon</footer>
   </div>
   <script>
+    const themeToggle = document.getElementById("theme-toggle");
+    const isDark = document.documentElement.dataset.theme === "dark";
+    themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+    themeToggle.addEventListener("click", () => {
+      const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+      document.documentElement.dataset.theme = nextTheme;
+      themeToggle.textContent = nextTheme === "dark" ? "Light mode" : "Dark mode";
+      themeToggle.setAttribute("aria-pressed", String(nextTheme === "dark"));
+      try {
+        localStorage.setItem("vidhi-theme", nextTheme);
+      } catch {}
+    });
+
     document.getElementById("contact-form").addEventListener("submit", (event) => {
       event.preventDefault();
       const message = new FormData(event.currentTarget).get("message").trim();
