@@ -86,6 +86,13 @@
     .contact-link:hover, .contact-link:focus-visible { background: var(--purple-dark); transform: translateY(-1px); }
     .contact-link.secondary { border: 1px solid #d9c9e5; background: #fff; color: var(--purple); }
     .contact-link.secondary:hover, .contact-link.secondary:focus-visible { background: #f3edf8; }
+    .contact-form { display: grid; gap: 13px; max-width: 580px; margin-top: 28px; }
+    .contact-form label { color: var(--ink); font-size: .88rem; font-weight: 650; }
+    .contact-form textarea { display: block; width: 100%; min-height: 132px; margin-top: 6px; padding: 12px 14px; resize: vertical; border: 1px solid #d9c9e5; border-radius: 7px; background: #fff; color: var(--ink); font: inherit; }
+    .contact-form textarea::placeholder { color: #918897; }
+    .contact-form button { justify-self: start; padding: 10px 17px; border: 0; border-radius: 7px; background: var(--purple); color: #fff; font: inherit; font-size: .9rem; font-weight: 650; cursor: pointer; transition: background .18s ease, transform .18s ease; }
+    .contact-form button:hover { background: var(--purple-dark); transform: translateY(-1px); }
+    .contact-note { margin: -3px 0 0; color: var(--muted); font-size: .84rem; }
     footer { padding: 24px 0 32px; color: #8b838f; font-size: .8rem; }
     :focus-visible { outline: 3px solid #b989d9; outline-offset: 3px; }
     @media (max-width: 700px) {
@@ -205,11 +212,26 @@
               <a class="contact-link" href="mailto:vj2337@nyu.edu">vj2337@nyu.edu <span aria-hidden="true">↗</span></a>
               <a class="contact-link secondary" href="https://www.linkedin.com/in/vidhi-jain-312ab0239">LinkedIn <span aria-hidden="true">↗</span></a>
             </div>
+            <form class="contact-form" id="contact-form">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Write your message…" required></textarea>
+              <button type="submit">Send message <span aria-hidden="true">↗</span></button>
+              <p class="contact-note">Your email app will open with the message ready to send.</p>
+            </form>
           </div>
         </div>
       </section>
     </main>
     <footer>Vidhi · MS in Biomedical Engineering · NYU Tandon</footer>
   </div>
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const message = new FormData(event.currentTarget).get("message").trim();
+      const subject = encodeURIComponent("Message from Vidhi’s website");
+      const body = encodeURIComponent(message);
+      window.location.href = `mailto:vj2337@nyu.edu?subject=${subject}&body=${body}`;
+    });
+  </script>
 </body>
 </html>
